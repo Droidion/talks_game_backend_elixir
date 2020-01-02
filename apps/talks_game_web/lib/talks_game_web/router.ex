@@ -17,5 +17,4 @@ defmodule TalksGameWeb.Router do
     pipe_through :browser
     get "/", DefaultController, :index
   end
-
 end

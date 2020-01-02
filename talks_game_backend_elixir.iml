@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="ELIXIR_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/cowboy" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/cowlib" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/gettext" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/jason" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/phoenix" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/phoenix_pubsub" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/plug" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/plug_cowboy" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/plug_crypto" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/ranch" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/telemetry" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/cowboy" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/cowlib" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/gettext" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/jason" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/phoenix" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/phoenix_pubsub" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/plug" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/plug_cowboy" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/plug_crypto" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/ranch" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/telemetry" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/test/lib/uuid" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
