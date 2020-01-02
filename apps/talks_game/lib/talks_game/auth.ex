@@ -11,59 +11,49 @@ defmodule TalksGame.Auth do
           password: String.t()
         }
 
-  @doc """
-    Generate UUID v4 for using as a token.
-
-    Returns string based on pseudo-random bytes.
-
-    ## Examples
-
-      iex> TalksGame.Auth.generate_uuid()
-      "fcfe5f21-8a08-4c9a-9f97-29d2fd6a27b9"
-
-  """
-
+  # Generate UUID v4 for using as a token.
   @spec generate_uuid :: String.t()
-  def generate_uuid() do
+  defp generate_uuid() do
     UUID.uuid4()
   end
 
-  @doc """
-    Search for a user in a database by user login.
-
-    Returns user or error text
-
-  """
-
+  # Search for a user in a database by user login.
   @spec user_by_login(String.t()) :: {:ok, user()} | {:error, String.t()}
-  def user_by_login(login) do
-    {:ok,
-     %{
-       login: "foo",
-       password: "bar"
-     }}
+  defp user_by_login(login) do
+    # That's boilerplate solution
+    # TODO search user in database
+    case login do
+      "foo" ->
+        {:ok,
+         %{
+           login: "foo",
+           password: "bar"
+         }}
+
+      _ ->
+        {:error, "User not found"}
+    end
+  end
+
+  # Checks if password is correct for a found user.
+  @spec password_matches?(user(), String.t()) :: :ok | {:error, String.t()}
+  defp password_matches?(user, password) do
+    case user.password == password do
+      true -> :ok
+      false -> {:error, "Wrong password"}
+    end
   end
 
   @doc """
-    Checks if password is correct for a found user.
-
+    Authenticate with given login and password
   """
-
-  @spec password_fits?(user(), String.t()) :: boolean()
-  def password_fits?(user, password) do
-    user.password == password
-  end
-
-  @doc """
-    Checks if login and password are correct.
-
-  """
-
-  @spec credentials_fit?(String.t(), String.t()) :: boolean()
-  def credentials_fit?(login, password) do
-    case user_by_login(login) do
-      {:ok, user} -> password_fits?(user, password)
-      {:error, _} -> false
+  @spec auth(String.t(), String.t()) :: {:ok, String.t()} | {:error, String.t()}
+  def auth(login, password) do
+    with {:ok, user} <- user_by_login(login),
+         :ok <- password_matches?(user, password) do
+      {:ok, generate_uuid()}
+    else
+      {:error, reason} -> {:error, reason}
     end
   end
 end

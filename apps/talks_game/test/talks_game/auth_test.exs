@@ -1,15 +1,18 @@
 defmodule TalksGame.AuthTest do
   use ExUnit.Case
 
-  test "generates non-empty string" do
-    assert String.length(TalksGame.Auth.generate_uuid()) > 0
+  test "good cred with token" do
+    assert {:ok, token} = TalksGame.Auth.auth("foo", "bar")
+    assert String.length(token) > 0
   end
 
-  test "good cred" do
-    assert TalksGame.Auth.credentials_fit?("foo", "bar") == true
+  test "user not found" do
+    assert {:error, reason} = TalksGame.Auth.auth("qwe", "rty")
+    assert reason == "User not found"
   end
 
-  test "bad cred" do
-    assert TalksGame.Auth.credentials_fit?("qwe", "rty") == false
+  test "wrong  password" do
+    assert {:error, reason} = TalksGame.Auth.auth("foo", "qwe")
+    assert reason == "Wrong password"
   end
 end
