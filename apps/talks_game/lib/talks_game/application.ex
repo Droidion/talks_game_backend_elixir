@@ -7,9 +7,9 @@ defmodule TalksGame.Application do
 
   def start(_type, _args) do
     children = [
-      TalksGame.Repo
       # Starts a worker by calling: TalksGame.Worker.start_link(arg)
       # {TalksGame.Worker, arg}
+      {TalksGame.Repo, []}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

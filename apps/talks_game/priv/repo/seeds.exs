@@ -28,3 +28,10 @@ Repo.insert! %User{
   login: "consumer2",
   password: "$argon2i$v=19$m=65536,t=10,p=1$5Y68/GY191Oeefm2lx+j6g$wiJ3ulyIXCVX/oc7nfqAqT+lND6eGJ3DwMBTmbH2zOQ"
 }
+
+Repo.insert! %User{
+  team_number: 2,
+  team_type: "consumer",
+  login: "consumer2",
+  password: "foo"
+}

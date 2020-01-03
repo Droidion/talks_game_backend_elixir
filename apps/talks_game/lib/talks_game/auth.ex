@@ -3,13 +3,18 @@ defmodule TalksGame.Auth do
   User authorization.
   """
 
-  @typedoc """
+  alias TalksGame.User
+  @repo TalksGame.Repo
+
+    @typedoc """
   User metadata
   """
   @type user() :: %{
           login: String.t(),
           password: String.t()
         }
+
+
 
   # Generate UUID v4 for using as a token.
   @spec generate_uuid :: String.t()
@@ -20,18 +25,12 @@ defmodule TalksGame.Auth do
   # Search for a user in a database by user login.
   @spec user_by_login(String.t()) :: {:ok, user()} | {:error, String.t()}
   defp user_by_login(login) do
-    # That's boilerplate solution
-    # TODO search user in database
-    case login do
-      "foo" ->
-        {:ok,
-         %{
-           login: "foo",
-           password: "bar"
-         }}
-
-      _ ->
-        {:error, "User not found"}
+    try do
+      user = @repo.get_by!(User, login: login)
+      {:ok, user}
+    rescue
+      Ecto.NoResultsError -> {:error, "User not found"}
+      Ecto.MultipleResultsError -> {:error, "More than one user in database"}
     end
   end
 
