@@ -6,15 +6,13 @@ defmodule TalksGame.Auth do
   alias TalksGame.User
   @repo TalksGame.Repo
 
-    @typedoc """
+  @typedoc """
   User metadata
   """
   @type user() :: %{
           login: String.t(),
           password: String.t()
         }
-
-
 
   # Generate UUID v4 for using as a token.
   @spec generate_uuid :: String.t()
