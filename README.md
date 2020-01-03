@@ -1,4 +1,21 @@
-# TalksGameUmbrella
+# Talks Game
 
-**TODO: Add description**
+## Database
 
+Have PostgreSQL installed and available. Know its hostname, login and password. Make sure there is no existing database called `talks-game`.
+
+Set database hostname, login and password in `config/config.exs`.
+
+Run `$ mix ecto.create` to set up new database.
+
+Run `$ mix ecto.migrate` to run all migrations.
+
+Run `$ mix run apps/talks_game/priv/repo/seeds.exs` to seed DB with data.
+
+## Application
+
+Run `$ mix deps.get` to install dependencies.
+
+Run `$ mix compile` to compile project.
+
+Run `$ mix test` to run unit tests.

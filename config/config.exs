@@ -23,9 +23,9 @@ config :talks_game, ecto_repos: [TalksGame.Repo]
 
 config :talks_game, TalksGame.Repo,
   database: "talks-game",
-  username: "droidion",
+  username: "drodiono",
   password: "",
-  hostname: "127.0.0.1",
+  hostname: "localhost",
   port: "5432"
 
 # Sample configuration:
