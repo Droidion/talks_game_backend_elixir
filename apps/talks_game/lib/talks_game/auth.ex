@@ -35,7 +35,9 @@ defmodule TalksGame.Auth do
   # Checks if password is correct for a found user.
   @spec password_matches?(user(), String.t()) :: :ok | {:error, String.t()}
   defp password_matches?(user, password) do
-    if user.password == password, do: :ok, else: {:error, "Wrong password"}
+    if Argon2.verify_pass(password, user.password),
+      do: :ok,
+      else: {:error, "Wrong password"}
   end
 
   @doc """

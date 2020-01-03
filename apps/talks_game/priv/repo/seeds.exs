@@ -1,37 +1,41 @@
 alias TalksGame.Repo
 alias TalksGame.User
 
-Repo.insert! %User{
+Repo.insert!(%User{
   team_number: 1,
   team_type: "supplier",
   login: "supplier1",
-  password: "$argon2i$v=19$m=65536,t=10,p=1$oqNVkvb6yPPzFEPiC8MsJQ$tYbdOoDWT/NIffnhB6isk1GsFUKAkUKzTczfMhiG1bA"
-}
+  password:
+    "$argon2id$v=19$m=65536,t=10,p=8$uMGy1regLkduJBjv6hHzPw$VfcE6iLYob/gjfOuljXHLIYUptFgQmRJZQiL3ZE4dkM"
+})
 
-Repo.insert! %User{
+Repo.insert!(%User{
   team_number: 2,
   team_type: "supplier",
   login: "supplier2",
-  password: "$argon2i$v=19$m=65536,t=10,p=1$wt2IG6dWb3lpDdoZV6lD6w$0xa45YpW+Mc7VmesrBAduns/L86jnc+vupBHUImIgUM"
-}
+  password:
+    "$argon2id$v=19$m=65536,t=10,p=8$TrvXf1BiX0M047a2q+YwTg$W46VJ/gW5AsJuDlQh2BFINZJ/XX0NOtmuYQexWsAZos"
+})
 
-Repo.insert! %User{
+Repo.insert!(%User{
   team_number: 1,
   team_type: "consumer",
   login: "consumer1",
-  password: "$argon2i$v=19$m=65536,t=10,p=1$4t/y8PJcBNu063UC5tEIcg$H6tpxXI3+nIFxcZ5z/kQahxFbzdT8VxVWwTiLmdjcE4"
-}
+  password:
+    "$argon2id$v=19$m=65536,t=10,p=8$j6bSuUFzVFPlI21MIdUvKw$/MYzNqtOIiUhuXYJN7Xxki3WJpqscoqWklDEOew9gNI"
+})
 
-Repo.insert! %User{
+Repo.insert!(%User{
   team_number: 2,
   team_type: "consumer",
   login: "consumer2",
-  password: "$argon2i$v=19$m=65536,t=10,p=1$5Y68/GY191Oeefm2lx+j6g$wiJ3ulyIXCVX/oc7nfqAqT+lND6eGJ3DwMBTmbH2zOQ"
-}
+  password:
+    "$argon2id$v=19$m=65536,t=10,p=8$MavBd7sSgR/1H5NFkkkx+w$euqLCoOU3b7qF8Ojg83C5DG6ni0cdqvU/INkU6m1ew0"
+})
 
-Repo.insert! %User{
+Repo.insert!(%User{
   team_number: 2,
   team_type: "consumer",
   login: "consumer2",
   password: "foo"
-}
+})

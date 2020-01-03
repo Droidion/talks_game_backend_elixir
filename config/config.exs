@@ -23,10 +23,15 @@ config :talks_game, ecto_repos: [TalksGame.Repo]
 
 config :talks_game, TalksGame.Repo,
   database: "talks-game",
-  username: "drodiono",
+  username: "droidion",
   password: "",
   hostname: "localhost",
   port: "5432"
+
+config :argon2_elixir,
+  parallelism: 8,
+  t_cost: 10,
+  m_cost: 16
 
 # Sample configuration:
 #

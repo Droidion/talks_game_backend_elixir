@@ -10,6 +10,8 @@ Have PostgreSQL installed and available. Know its hostname, login and password. 
 
 Set database hostname, login and password in `config/config.exs`.
 
+If you need to reaceate previously created database, run `$ mix ecto.drop`. If it's you first run, go to the next step.
+
 Run `$ mix ecto.create` to set up new database.
 
 Run `$ mix ecto.migrate` to run all migrations.

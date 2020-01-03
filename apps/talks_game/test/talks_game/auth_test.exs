@@ -5,7 +5,7 @@ defmodule TalksGame.AuthTest do
     assert {:ok, token} =
              TalksGame.Auth.auth(
                "supplier1",
-               "$argon2i$v=19$m=65536,t=10,p=1$oqNVkvb6yPPzFEPiC8MsJQ$tYbdOoDWT/NIffnhB6isk1GsFUKAkUKzTczfMhiG1bA"
+               "supplier1"
              )
 
     assert String.length(token) > 0
@@ -21,7 +21,7 @@ defmodule TalksGame.AuthTest do
     assert reason == "Wrong password"
   end
 
-  test "wrong  password" do
+  test "more than 1 user in DB" do
     assert {:error, reason} = TalksGame.Auth.auth("consumer2", "foo")
     assert reason == "More than one user in database"
   end
