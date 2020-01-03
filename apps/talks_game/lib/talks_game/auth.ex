@@ -38,10 +38,7 @@ defmodule TalksGame.Auth do
   # Checks if password is correct for a found user.
   @spec password_matches?(user(), String.t()) :: :ok | {:error, String.t()}
   defp password_matches?(user, password) do
-    case user.password == password do
-      true -> :ok
-      false -> {:error, "Wrong password"}
-    end
+    if user.password == password, do: :ok, else: {:error, "Wrong password"}
   end
 
   @doc """
