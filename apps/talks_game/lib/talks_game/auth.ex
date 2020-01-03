@@ -49,7 +49,10 @@ defmodule TalksGame.Auth do
   def auth(login, password) do
     with {:ok, user} <- user_by_login(login),
          :ok <- password_matches?(user, password) do
-      {:ok, generate_uuid()}
+      uuid = generate_uuid()
+      session = %{number: user.team_number, type: user.team_type, commander: false}
+      Redix.command(:redix, ["SET", "session:" <> uuid, Jason.encode!(session)])
+      {:ok, uuid}
     else
       {:error, reason} -> {:error, reason}
     end

@@ -9,7 +9,8 @@ defmodule TalksGame.Application do
     children = [
       # Starts a worker by calling: TalksGame.Worker.start_link(arg)
       # {TalksGame.Worker, arg}
-      {TalksGame.Repo, []}
+      {TalksGame.Repo, []},
+      {Redix, name: :redix}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
