@@ -24,7 +24,7 @@ defmodule TalksGameWeb.MixProject do
   def application do
     [
       mod: {TalksGameWeb.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :phoenix_ecto, :runtime_tools]
     ]
   end
 
@@ -39,6 +39,7 @@ defmodule TalksGameWeb.MixProject do
     [
       {:phoenix, "~> 1.4.11"},
       {:phoenix_pubsub, "~> 1.1"},
+      {:phoenix_ecto, "~> 4.1"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"}

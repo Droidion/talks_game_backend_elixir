@@ -42,7 +42,9 @@ defmodule TalksGame.Auth do
   end
 
   @doc """
-    Authenticate with given login and password
+    Authenticate with given login and password.
+
+    Returns session token or error text.
   """
   @spec auth(String.t(), String.t()) :: {:ok, String.t()} | {:error, String.t()}
   def auth(login, password) do

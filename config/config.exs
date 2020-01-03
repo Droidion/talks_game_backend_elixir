@@ -19,6 +19,15 @@ config :talks_game_web, TalksGameWeb.Endpoint,
   render_errors: [view: TalksGameWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: TalksGameWeb.PubSub, adapter: Phoenix.PubSub.PG2]
 
+config :talks_game, ecto_repos: [TalksGame.Repo]
+
+config :talks_game, TalksGame.Repo,
+  database: "talks-game",
+  username: "droidion",
+  password: "",
+  hostname: "127.0.0.1",
+  port: "5432"
+
 # Sample configuration:
 #
 #     config :logger, :console,
