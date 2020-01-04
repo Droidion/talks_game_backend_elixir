@@ -36,7 +36,7 @@ Run `$ mix phx.server` to start web server with GraphQL API.
 
 Use `http://localhost:4000/api/graphiql` to test GraphQL api. Use `http://localhost:4000/api` to send queries.
 
-For testing, use the following schema
+Sign in schema:
 
 ```
 {
@@ -47,6 +47,16 @@ For testing, use the following schema
     isCommander
     createdAt
     updatedAt
+  }
+}
+```
+
+Sign out schema:
+
+```
+{
+  signout(token: "9be1a478-2c28-427a-bcad-f8ad7f571f95") {
+    message
   }
 }
 ```
