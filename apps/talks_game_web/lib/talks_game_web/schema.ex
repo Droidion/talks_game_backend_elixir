@@ -6,10 +6,10 @@ defmodule TalksGameWeb.Schema do
 
   query do
     @desc "Try to authenticate"
-    field :auth, :session do
+    field :signin, :session do
       arg(:login, non_null(:string))
       arg(:password, non_null(:string))
-      resolve(&Resolvers.Content.auth/3)
+      resolve(&Resolvers.Content.signin/3)
     end
   end
 end

@@ -3,7 +3,7 @@ defmodule TalksGame.AuthTest do
 
   test "good cred with token" do
     assert {:ok, token} =
-             TalksGame.Auth.auth(
+             TalksGame.Auth.signin(
                "supplier1",
                "supplier1"
              )
@@ -12,17 +12,17 @@ defmodule TalksGame.AuthTest do
   end
 
   test "user not found" do
-    assert {:error, reason} = TalksGame.Auth.auth("qwe", "rty")
+    assert {:error, reason} = TalksGame.Auth.signin("qwe", "rty")
     assert reason == "User not found"
   end
 
   test "wrong password" do
-    assert {:error, reason} = TalksGame.Auth.auth("supplier2", "foo")
+    assert {:error, reason} = TalksGame.Auth.signin("supplier2", "foo")
     assert reason == "Wrong password"
   end
 
   test "more than 1 user in DB" do
-    assert {:error, reason} = TalksGame.Auth.auth("consumer2", "foo")
+    assert {:error, reason} = TalksGame.Auth.signin("consumer2", "foo")
     assert reason == "More than one user in database"
   end
 end

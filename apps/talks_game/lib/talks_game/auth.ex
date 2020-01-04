@@ -38,8 +38,8 @@ defmodule TalksGame.Auth do
 
     Returns session token or error text.
   """
-  @spec auth(String.t(), String.t()) :: {:ok, Session} | {:error, String.t()}
-  def auth(login, password) do
+  @spec signin(String.t(), String.t()) :: {:ok, Session} | {:error, String.t()}
+  def signin(login, password) do
     with {:ok, user} <- user_by_login(login),
          :ok <- password_matches?(user, password) do
       uuid = generate_uuid()
