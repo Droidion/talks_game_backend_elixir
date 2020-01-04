@@ -32,7 +32,7 @@ Run `$ mix phx.server` to start web server with GraphQL API.
 
 ## GraphQL API
 
-Use `http://localhost:4000/api/graphiql` to test GraphQL api.
+Use `http://localhost:4000/api/graphiql` to test GraphQL api. Use `http://localhost:4000/api` to send queries.
 
 For testing, use the following schema
 
