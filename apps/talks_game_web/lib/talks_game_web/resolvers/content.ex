@@ -5,4 +5,11 @@ defmodule TalksGameWeb.Resolvers.Content do
       {:error, reason} -> {:error, reason}
     end
   end
+
+  def signout(_parent, %{token: token}, _resolution) do
+    case TalksGame.Auth.signout(token) do
+      :ok -> {:ok, %{message: "Session terminated"}}
+      {:error, reason} -> {:error, reason}
+    end
+  end
 end

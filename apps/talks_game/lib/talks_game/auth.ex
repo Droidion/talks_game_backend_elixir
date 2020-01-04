@@ -34,7 +34,7 @@ defmodule TalksGame.Auth do
   end
 
   @doc """
-    Authenticate with given login and password.
+    Try to sign in with given login and password.
 
     Returns session token or error text.
   """
@@ -57,6 +57,20 @@ defmodule TalksGame.Auth do
       Redix.command(:redix, ["SET", "session:" <> uuid, Jason.encode!(session), "EX", "180000"])
       {:ok, session}
     else
+      {:error, reason} -> {:error, reason}
+    end
+  end
+
+  @doc """
+    Try sign out user by a token
+
+    Returns success flag or error text.
+  """
+  @spec signout(String.t()) :: :ok | {:error, String.t()}
+  def signout(token) do
+    case Redix.command(:redix, ["DEL", "session:" <> token]) do
+      {:ok, 0} -> {:error, "Could not find session"}
+      {:ok, _} -> :ok
       {:error, reason} -> {:error, reason}
     end
   end

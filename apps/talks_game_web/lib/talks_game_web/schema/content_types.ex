@@ -9,4 +9,8 @@ defmodule TalksGameWeb.Schema.ContentTypes do
     field(:created_at, :string)
     field(:updated_at, :string)
   end
+
+  object :message do
+    field(:message, :string)
+  end
 end

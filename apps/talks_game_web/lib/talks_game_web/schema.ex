@@ -5,11 +5,17 @@ defmodule TalksGameWeb.Schema do
   alias TalksGameWeb.Resolvers
 
   query do
-    @desc "Try to authenticate"
+    @desc "Sign in"
     field :signin, :session do
       arg(:login, non_null(:string))
       arg(:password, non_null(:string))
       resolve(&Resolvers.Content.signin/3)
+    end
+
+    @desc "Sign out"
+    field :signout, :message do
+      arg(:token, non_null(:string))
+      resolve(&Resolvers.Content.signout/3)
     end
   end
 end
