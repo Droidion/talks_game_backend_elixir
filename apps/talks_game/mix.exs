@@ -30,7 +30,8 @@ defmodule TalksGame.MixProject do
       {:uuid, "~> 1.1"},
       {:ecto_sql, "~> 3.3"},
       {:postgrex, "~> 0.15"},
-      {:redix, ">= 0.0.0"}
+      {:redix, ">= 0.0.0"},
+      {:typed_struct, "~> 0.1.4"}
     ]
   end
 end

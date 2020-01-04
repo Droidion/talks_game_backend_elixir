@@ -4,15 +4,8 @@ defmodule TalksGame.Auth do
   """
 
   alias TalksGame.User
+  alias TalksGame.Session
   @repo TalksGame.Repo
-
-  @typedoc """
-  User metadata
-  """
-  @type user() :: %{
-          login: String.t(),
-          password: String.t()
-        }
 
   # Generate UUID v4 for using as a token.
   @spec generate_uuid :: String.t()
@@ -21,7 +14,7 @@ defmodule TalksGame.Auth do
   end
 
   # Search for a user in a database by user login.
-  @spec user_by_login(String.t()) :: {:ok, user()} | {:error, String.t()}
+  @spec user_by_login(String.t()) :: {:ok, User} | {:error, String.t()}
   defp user_by_login(login) do
     try do
       user = @repo.get_by!(User, login: login)
@@ -33,7 +26,7 @@ defmodule TalksGame.Auth do
   end
 
   # Checks if password is correct for a found user.
-  @spec password_matches?(user(), String.t()) :: :ok | {:error, String.t()}
+  @spec password_matches?(User, String.t()) :: :ok | {:error, String.t()}
   defp password_matches?(user, password) do
     if Argon2.verify_pass(password, user.password),
       do: :ok,
@@ -50,8 +43,18 @@ defmodule TalksGame.Auth do
     with {:ok, user} <- user_by_login(login),
          :ok <- password_matches?(user, password) do
       uuid = generate_uuid()
-      session = %{number: user.team_number, type: user.team_type, commander: false}
-      Redix.command(:redix, ["SET", "session:" <> uuid, Jason.encode!(session)])
+
+      session = %Session{
+        token: uuid,
+        team_number: user.team_number,
+        team_type: user.team_type,
+        is_commander: false,
+        created_at: DateTime.utc_now(),
+        updated_at: DateTime.utc_now()
+      }
+
+      # Cache new session to Redis
+      Redix.command(:redix, ["SET", "session:" <> uuid, Jason.encode!(session), "EX", "180000"])
       {:ok, uuid}
     else
       {:error, reason} -> {:error, reason}
