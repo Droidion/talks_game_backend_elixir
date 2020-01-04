@@ -38,7 +38,7 @@ defmodule TalksGame.Auth do
 
     Returns session token or error text.
   """
-  @spec auth(String.t(), String.t()) :: {:ok, String.t()} | {:error, String.t()}
+  @spec auth(String.t(), String.t()) :: {:ok, Session} | {:error, String.t()}
   def auth(login, password) do
     with {:ok, user} <- user_by_login(login),
          :ok <- password_matches?(user, password) do
@@ -55,7 +55,7 @@ defmodule TalksGame.Auth do
 
       # Cache new session to Redis
       Redix.command(:redix, ["SET", "session:" <> uuid, Jason.encode!(session), "EX", "180000"])
-      {:ok, uuid}
+      {:ok, session}
     else
       {:error, reason} -> {:error, reason}
     end

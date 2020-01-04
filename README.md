@@ -40,6 +40,11 @@ For testing, use the following schema
 {
   auth(login: "supplier1", password: "supplier1") {
     token
+    teamNumber
+    teamType
+    isCommander
+    createdAt
+    updatedAt
   }
 }
 ```
