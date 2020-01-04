@@ -27,3 +27,19 @@ Run `$ mix deps.get` to install dependencies.
 Run `$ mix compile` to compile project.
 
 Run `$ mix test` to run unit tests.
+
+Run `$ mix phx.server` to start web server with GraphQL API.
+
+## GraphQL API
+
+Use `http://localhost:4000/api/graphiql` to test GraphQL api.
+
+For testing, use the following schema
+
+```
+{
+  auth(login: "supplier1", password: "supplier1") {
+    token
+  }
+}
+```

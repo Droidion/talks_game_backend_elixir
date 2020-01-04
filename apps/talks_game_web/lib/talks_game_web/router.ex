@@ -5,8 +5,12 @@ defmodule TalksGameWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", TalksGameWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: TalksGameWeb.Schema
+
+    forward "/", Absinthe.Plug, schema: TalksGameWeb.Schema
   end
 
   pipeline :browser do
