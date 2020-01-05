@@ -10,7 +10,7 @@ defmodule TalksGame.Application do
       # Starts a worker by calling: TalksGame.Worker.start_link(arg)
       # {TalksGame.Worker, arg}
       {TalksGame.Repo, []},
-      {Redix, name: :redix}
+      {Redix, host: Application.fetch_env!(:talks_game, :redis_host), name: :redix}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

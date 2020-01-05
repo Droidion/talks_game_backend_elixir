@@ -10,8 +10,20 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :talks_game_web, TalksGameWeb.Endpoint,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: "localhost"],
+  http: [port: 4000],
+  server: true,
+  root: ".",
+  version: Application.spec(:phoenix_app, :vsn)
+
+config :talks_game, TalksGame.Repo,
+  database: "talks-game",
+  username: "droidion",
+  password: "",
+  hostname: "host.docker.internal",
+  port: "5432"
+
+config :talks_game, redis_host: "host.docker.internal"
 
 # ## SSL Support
 #

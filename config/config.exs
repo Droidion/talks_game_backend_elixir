@@ -17,9 +17,14 @@ config :talks_game_web, TalksGameWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "R18814Vkp2ExvWhz5qMXks3taQpJXsZTT/IXxsMwdPjRcjoRBx4ukAeIUDREWuk9",
   render_errors: [view: TalksGameWeb.ErrorView, accepts: ~w(json)],
+  server: true,
+  root: ".",
+  version: Application.spec(:phoenix_app, :vsn),
   pubsub: [name: TalksGameWeb.PubSub, adapter: Phoenix.PubSub.PG2]
 
 config :talks_game, ecto_repos: [TalksGame.Repo]
+
+config :talks_game, redis_host: "localhost"
 
 config :talks_game, TalksGame.Repo,
   database: "talks-game",
