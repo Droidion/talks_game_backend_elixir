@@ -36,9 +36,20 @@ Run `$ mix phx.server` to start web server with GraphQL API.
 
 Set up prod PostgreSQL credentials in `config/prod.exs`. For Mac and Windows hosts you can use `host.docker.internal` as hostname, for linux hosts you need to know host's IP address. See more [here](https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach).
 
+You can use Docker to run the app:
+
 Have `docker` and `docker-compose` installed.
 
 Run `docker-compose up -d` to start the container.
+
+Important! You need to set up database structure and seed data before running Docker container! To be improved.
+
+Or you can build and run the release:
+
+```
+$ mix release
+$ ./_build/prod/rel/talks_game_umbrella/bin/talks_game_umbrella start
+```
 
 ## GraphQL API
 
