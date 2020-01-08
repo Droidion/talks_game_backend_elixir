@@ -40,5 +40,7 @@ defmodule TalksGameWeb.Endpoint do
     key: "_talks_game_web_key",
     signing_salt: "gBiwKsx/"
 
+  plug CORSPlug
+
   plug TalksGameWeb.Router
 end
