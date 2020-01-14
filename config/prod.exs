@@ -16,12 +16,7 @@ config :talks_game_web, TalksGameWeb.Endpoint,
   root: ".",
   version: Application.spec(:phoenix_app, :vsn)
 
-config :talks_game, TalksGame.Repo,
-  database: "talks-game",
-  username: "droidion",
-  password: "",
-  hostname: "host.docker.internal",
-  port: "5432"
+config :talks_game, TalksGame.Repo, database: "talks-game"
 
 config :talks_game, redis_host: "host.docker.internal"
 

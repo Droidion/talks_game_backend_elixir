@@ -26,13 +26,6 @@ config :talks_game, ecto_repos: [TalksGame.Repo]
 
 config :talks_game, redis_host: "localhost"
 
-config :talks_game, TalksGame.Repo,
-  database: "talks-game",
-  username: "droidion",
-  password: "",
-  hostname: "localhost",
-  port: "5432"
-
 config :argon2_elixir,
   parallelism: 8,
   t_cost: 10,

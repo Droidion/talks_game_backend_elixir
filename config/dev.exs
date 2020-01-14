@@ -13,6 +13,8 @@ config :talks_game_web, TalksGameWeb.Endpoint,
   check_origin: false,
   watchers: []
 
+config :talks_game, TalksGame.Repo, database: "talks-game"
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
