@@ -10,9 +10,42 @@ Have PostgreSQL installed and available. Know its hostname, login and password. 
 
 Have local Redis instance installed and available.
 
-Set database hostname, login and password in `config/config.exs`.
+Set database hostname, login and password in `config/dev.scret.exs` for development environment like this:
 
-If you need to reaceate previously created database, run `$ mix ecto.drop`. If it's you first run, go to the next step.
+```elixir
+use Mix.Config
+
+config :talks_game, TalksGame.Repo,
+  username: "droidion",
+  password: "",
+  hostname: "localhost",
+  port: "5432"
+```
+
+Set database hostname, login and password in `config/dev.secret.exs` for production environment like this:
+
+```elixir
+use Mix.Config
+
+secret_key_base =
+  System.get_env("SECRET_KEY_BASE") ||
+    raise """
+    environment variable SECRET_KEY_BASE is missing.
+    You can generate one by calling: mix phx.gen.secret
+    """
+
+config :talks_game_web, TalksGameWeb.Endpoint,
+  http: [:inet6, port: String.to_integer(System.get_env("PORT") || "4000")],
+  secret_key_base: secret_key_base
+
+config :talks_game, TalksGame.Repo,
+  username: "droidion",
+  password: "",
+  hostname: "host.docker.internal",
+  port: "5432"
+```
+
+If you need to recreate previously created database, run `$ mix ecto.drop`. If it's you first run, go to the next step.
 
 Run `$ mix ecto.create` to set up new database.
 
