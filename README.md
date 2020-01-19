@@ -22,7 +22,7 @@ config :talks_game, TalksGame.Repo,
   port: "5432"
 ```
 
-Set database hostname, login and password in `config/dev.secret.exs` for production environment like this:
+Set database hostname, login and password in `config/prod.secret.exs` for production environment like this:
 
 ```elixir
 use Mix.Config
