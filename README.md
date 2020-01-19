@@ -10,7 +10,7 @@ Have PostgreSQL installed and available. Know its hostname, login and password. 
 
 Have local Redis instance installed and available.
 
-Set database hostname, login and password in `config/dev.scret.exs` for development environment like this:
+Set database hostname, login and password in `config/dev.secret.exs` for development environment like this:
 
 ```elixir
 use Mix.Config
