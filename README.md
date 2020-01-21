@@ -10,13 +10,13 @@ Have PostgreSQL installed and available. Know its hostname, login and password. 
 
 Have local Redis instance installed and available.
 
-Set database hostname, login and password in `config/dev.secret.exs` for development environment like this:
+Set database hostname, login and password in `config/dev.secret.exs` for development and in `config/test.secret.exs` testing environments like this:
 
 ```elixir
 use Mix.Config
 
 config :talks_game, TalksGame.Repo,
-  username: "droidion",
+  username: "username",
   password: "",
   hostname: "localhost",
   port: "5432"
@@ -39,7 +39,7 @@ config :talks_game_web, TalksGameWeb.Endpoint,
   secret_key_base: secret_key_base
 
 config :talks_game, TalksGame.Repo,
-  username: "droidion",
+  username: "username",
   password: "",
   hostname: "host.docker.internal",
   port: "5432"
@@ -60,8 +60,6 @@ Have [Elixir](https://elixir-lang.org/install.html) installed.
 Run `$ mix deps.get` to install dependencies.
 
 Run `$ mix compile` to compile project.
-
-Run `$ mix test` to run unit tests.
 
 Run `$ mix phx.server` to start web server with GraphQL API.
 
@@ -112,3 +110,11 @@ Sign out schema:
   }
 }
 ```
+
+## Testing
+
+Run `$ mix test` to run unit tests.
+
+Run `$ mix credo` for static analysis.
+
+Run `$ mix dialyzer` for typing analysis.

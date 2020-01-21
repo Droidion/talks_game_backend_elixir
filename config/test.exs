@@ -5,3 +5,5 @@ use Mix.Config
 config :talks_game_web, TalksGameWeb.Endpoint,
   http: [port: 4002],
   server: false
+
+config :talks_game, TalksGame.Repo, database: "talks-game"
