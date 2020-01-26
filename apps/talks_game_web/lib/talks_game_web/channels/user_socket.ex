@@ -2,7 +2,7 @@ defmodule TalksGameWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", TalksGameWeb.RoomChannel
+  channel "talksgame", TalksGameWeb.TalksgameChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
