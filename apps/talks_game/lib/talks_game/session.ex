@@ -1,4 +1,8 @@
 defmodule TalksGame.Session do
+  @moduledoc """
+  A struct representing a user session.
+  """
+
   use TypedStruct
 
   @typedoc "User session"

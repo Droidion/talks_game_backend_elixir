@@ -1,6 +1,6 @@
 defmodule TalksGame.Auth do
   @moduledoc """
-  User authorization
+  User authorization logic
   """
 
   alias TalksGame.User

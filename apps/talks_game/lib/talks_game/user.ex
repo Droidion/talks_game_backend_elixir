@@ -1,4 +1,8 @@
 defmodule TalksGame.User do
+  @moduledoc """
+  An Ecto mapped struct representing a user.
+  """
+
   use Ecto.Schema
 
   schema "users" do
