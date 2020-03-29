@@ -40,12 +40,12 @@ defmodule TalksGameWeb.MixProject do
       {:absinthe, "~> 1.4"},
       {:absinthe_plug, "~> 1.4"},
       {:cors_plug, "~> 2.0"},
-      {:phoenix, "~> 1.4.11"},
+      {:phoenix, "~> 1.4"},
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.1"},
-      {:gettext, "~> 0.11"},
-      {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:gettext, "~> 0.17.4"},
+      {:jason, "~> 1.2"},
+      {:plug_cowboy, "~> 2.1"}
     ]
   end
 

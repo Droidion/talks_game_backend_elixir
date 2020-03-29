@@ -1,18 +1,5 @@
 defmodule TalksGame do
   @moduledoc """
-  Documentation for TalksGame.
+  Business logic for Talks Game. Containes everything not web related
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> TalksGame.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end

@@ -82,6 +82,18 @@ $ mix release
 $ ./_build/prod/rel/talks_game_umbrella/bin/talks_game_umbrella start
 ```
 
+## Testing
+
+We do unit testing according to Elixir guidelines.
+
+To run tests do `mix test`.
+
+## Documenting
+
+We document modules and functions using Elixir guidelines and packages `ex_doc` and `earmark`.
+
+Run `mix docs` to generate HTML documentation in `docs` folder.
+
 ## GraphQL API
 
 Use `http://localhost:4000/api/graphiql` to test GraphQL api. Use `http://localhost:4000/api` to send queries.
@@ -118,3 +130,4 @@ Run `$ mix test` to run unit tests.
 Run `$ mix credo` for static analysis.
 
 Run `$ mix dialyzer` for typing analysis.
+

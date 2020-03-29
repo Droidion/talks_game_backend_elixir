@@ -26,11 +26,11 @@ defmodule TalksGame.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:argon2_elixir, "~> 2.0"},
+      {:argon2_elixir, "~> 2.3"},
       {:uuid, "~> 1.1"},
-      {:ecto_sql, "~> 3.3"},
-      {:postgrex, "~> 0.15"},
-      {:redix, ">= 0.0.0"},
+      {:ecto_sql, "~> 3.4"},
+      {:postgrex, "~> 0.15.3"},
+      {:redix, "~> 0.10.5"},
       {:typed_struct, "~> 0.1.4"}
     ]
   end

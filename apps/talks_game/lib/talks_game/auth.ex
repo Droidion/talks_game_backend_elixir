@@ -1,19 +1,20 @@
 defmodule TalksGame.Auth do
   @moduledoc """
-  User authorization.
+  User authorization
   """
 
   alias TalksGame.User
   alias TalksGame.Session
   @repo TalksGame.Repo
 
-  # Generate UUID v4 for using as a token.
+  # Generates UUID v4 for using as a token
+  # Output example: "ec27ddf9-4dd6-46a6-bf2b-0d2bf007fb4c"
   @spec generate_uuid :: String.t()
   defp generate_uuid() do
     UUID.uuid4()
   end
 
-  # Search for a user in a database by user login.
+  # Searches for a user in a database by user login.
   @spec user_by_login(String.t()) :: {:ok, User} | {:error, String.t()}
   defp user_by_login(login) do
     try do
@@ -34,9 +35,28 @@ defmodule TalksGame.Auth do
   end
 
   @doc """
-    Try to sign in with given login and password.
+  Tries to sign in with given login and password
 
-    Returns session token or error text.
+  ## Parameters
+
+    * `login`: String that represents user login
+    * `password`: String that represents user password
+
+  ## Examples
+
+      iex> TalksGame.Auth.signin("foo", "bar")
+      {:error, "User not found"}
+
+      iex> TalksGame.Auth.signin("supplier1", "supplier1")
+      {:ok,
+       %TalksGame.Session{
+         created_at: ~U[2020-03-29 12:15:36.547327Z],
+         is_commander: false,
+         team_number: 1,
+         team_type: "supplier",
+         token: "1423fcd4-a8b7-4346-8cae-d6686762cfd0",
+         updated_at: ~U[2020-03-29 12:15:36.547353Z]
+       }}
   """
   @spec signin(String.t(), String.t()) :: {:ok, Session} | {:error, String.t()}
   def signin(login, password) do
@@ -62,9 +82,19 @@ defmodule TalksGame.Auth do
   end
 
   @doc """
-    Try sign out user by a token
+  Tries to sign out user by a token
 
-    Returns success flag or error text.
+  ## Parameters
+
+    * `token`: String that represents user token
+
+  ## Examples
+
+      iex> TalksGame.Auth.signout("1423fcd4-a8b7-4346-8cae-d6686762cfd0")
+      :ok
+
+      iex> TalksGame.Auth.signout("foo")
+      {:error, "Could not find session"}
   """
   @spec signout(String.t()) :: :ok | {:error, String.t()}
   def signout(token) do
