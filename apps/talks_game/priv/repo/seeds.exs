@@ -1,5 +1,6 @@
 alias TalksGame.Repo
 alias TalksGame.User
+alias TalksGame.Timer
 
 Repo.insert!(%User{
   team_number: 1,
@@ -38,4 +39,35 @@ Repo.insert!(%User{
   team_type: "consumer",
   login: "consumer2",
   password: "foo"
+})
+
+# TIMERS
+Repo.insert!(%Timer{
+  period: 1,
+  hour: 23,
+  minute: 0
+})
+
+Repo.insert!(%Timer{
+  period: 2,
+  hour: 23,
+  minute: 15
+})
+
+Repo.insert!(%Timer{
+  period: 3,
+  hour: 23,
+  minute: 20
+})
+
+Repo.insert!(%Timer{
+  period: 4,
+  hour: 23,
+  minute: 25
+})
+
+Repo.insert!(%Timer{
+  period: 5,
+  hour: 23,
+  minute: 30
 })

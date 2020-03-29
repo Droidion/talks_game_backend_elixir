@@ -29,6 +29,7 @@ defmodule TalksGame.MixProject do
       {:argon2_elixir, "~> 2.3"},
       {:uuid, "~> 1.1"},
       {:ecto_sql, "~> 3.4"},
+      {:jason, "~> 1.2"},
       {:postgrex, "~> 0.15.3"},
       {:redix, "~> 0.10.5"},
       {:typed_struct, "~> 0.1.4"}
