@@ -11,4 +11,9 @@ defmodule TalksGame.UtilTest do
     assert {false, "-5 is out of range 0..100"} = TalksGame.Util.in_range?(-5, 0..100)
     assert {false, "105 is out of range 0..100"} = TalksGame.Util.in_range?(105, 0..100)
   end
+
+  test "generate_uuid" do
+    uuid = TalksGame.Util.generate_uuid()
+    assert String.length(uuid) === 36
+  end
 end

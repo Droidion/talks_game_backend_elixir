@@ -23,4 +23,18 @@ defmodule TalksGame.Util do
   def in_range?(number, min..max) do
     number in min..max || {false, "#{number} is out of range #{min}..#{max}"}
   end
+
+  @doc """
+  Generates UUID v4 for using as a token
+
+  ## Example
+
+      iex> TalksGame.Util.generate_uuid()
+      "ec27ddf9-4dd6-46a6-bf2b-0d2bf007fb4c"
+
+  """
+  @spec generate_uuid :: String.t()
+  def generate_uuid() do
+    UUID.uuid4()
+  end
 end

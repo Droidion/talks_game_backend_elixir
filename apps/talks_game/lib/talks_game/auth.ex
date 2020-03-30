@@ -5,14 +5,8 @@ defmodule TalksGame.Auth do
 
   alias TalksGame.Schemas.User
   alias TalksGame.Session
+  import TalksGame.Util
   @repo TalksGame.Repo
-
-  # Generates UUID v4 for using as a token
-  # Output example: "ec27ddf9-4dd6-46a6-bf2b-0d2bf007fb4c"
-  @spec generate_uuid :: String.t()
-  defp generate_uuid() do
-    UUID.uuid4()
-  end
 
   # Searches for a user in a database by user login.
   @spec user_by_login(String.t()) :: {:ok, User} | {:error, String.t()}
