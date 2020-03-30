@@ -1,6 +1,14 @@
 defmodule TalksGame.TimerTest do
   use ExUnit.Case
 
+  test "get_timer: success" do
+    assert {:ok, _} = TalksGame.Timer.get_timer(1)
+  end
+
+  test "get_timer: fail" do
+    assert {:error, "Could not find timer for period 7"} = TalksGame.Timer.get_timer(7)
+  end
+
   test "set_timer: success" do
     assert :ok = TalksGame.Timer.set_timer(1, 23, 15)
   end
