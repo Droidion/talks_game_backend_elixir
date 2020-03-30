@@ -3,7 +3,7 @@ defmodule TalksGame.Auth do
   User authorization logic
   """
 
-  alias TalksGame.User
+  alias TalksGame.Schemas.User
   alias TalksGame.Session
   @repo TalksGame.Repo
 
