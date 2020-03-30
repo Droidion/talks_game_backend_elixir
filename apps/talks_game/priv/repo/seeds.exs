@@ -3,6 +3,14 @@ alias TalksGame.User
 alias TalksGame.Timer
 
 Repo.insert!(%User{
+  team_number: NULL,
+  team_type: "admin",
+  login: "admin",
+  password:
+    "$argon2id$v=19$m=65536,t=10,p=8$EObrUdwlXmJl+vrL5g43+A$AGna7Zx6/PbIVjRhmviI3lXuo/p0IEUSWJ2Sx+4eSPM"
+})
+
+Repo.insert!(%User{
   team_number: 1,
   team_type: "supplier",
   login: "supplier1",

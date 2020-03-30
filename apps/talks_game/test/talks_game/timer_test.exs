@@ -9,6 +9,11 @@ defmodule TalksGame.TimerTest do
     assert {:error, "Could not find timer for period 7"} = TalksGame.Timer.get_timer(7)
   end
 
+  test "get_all_timers: success" do
+    assert {:ok, timers} = TalksGame.Timer.get_all_timers()
+    assert length(timers) > 0
+  end
+
   test "set_timer: success" do
     assert :ok = TalksGame.Timer.set_timer(1, 23, 15)
   end

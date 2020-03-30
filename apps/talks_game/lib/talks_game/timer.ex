@@ -5,6 +5,7 @@ defmodule TalksGame.Timer do
 
   alias TalksGame.Schemas.Timer
   import TalksGame.Util
+  import Ecto.Query
 
   @repo TalksGame.Repo
 
@@ -41,6 +42,46 @@ defmodule TalksGame.Timer do
       {:error, "Could not find timer for period #{period}"}
     else
       {:ok, timer}
+    end
+  end
+
+  @doc """
+  Gets all timers (for all period) sorted by period
+
+  ## Examples
+
+      iex> TalksGame.Timer.get_all_timers
+      {:ok,
+        [
+          %TalksGame.Schemas.Timer{
+            __meta__: #Ecto.Schema.Metadata<:loaded, "timers">,
+            hour: 23,
+            id: 1,
+            inserted_at: ~N[2020-03-29 18:09:21],
+            minute: 15,
+            period: 1,
+            updated_at: ~N[2020-03-30 00:16:18]
+          },
+          %TalksGame.Schemas.Timer{
+            __meta__: #Ecto.Schema.Metadata<:loaded, "timers">,
+            hour: 23,
+            id: 2,
+            inserted_at: ~N[2020-03-29 18:09:21],
+            minute: 55,
+            period: 2,
+            updated_at: ~N[2020-03-29 22:08:36]
+          }
+       ]}
+  """
+  @spec get_all_timers() :: {:ok, [Timer]} | {:error, String.t()}
+  def get_all_timers() do
+    q = from(t in Timer, order_by: t.period)
+    timers = @repo.all(q)
+
+    if timers === nil do
+      {:error, "No timer data in the database"}
+    else
+      {:ok, timers}
     end
   end
 
