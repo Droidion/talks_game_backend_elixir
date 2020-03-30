@@ -12,18 +12,15 @@ defmodule TalksGame.AuthTest do
   end
 
   test "signin: user not found" do
-    assert {:error, reason} = TalksGame.Auth.signin("qwe", "rty")
-    assert reason == "User not found"
+    assert {:error, "User not found"} = TalksGame.Auth.signin("qwe", "rty")
   end
 
   test "signin: wrong password" do
-    assert {:error, reason} = TalksGame.Auth.signin("supplier2", "foo")
-    assert reason == "Wrong password"
+    assert {:error, "Wrong password"} = TalksGame.Auth.signin("supplier2", "foo")
   end
 
   test "signin: more than 1 user in DB" do
-    assert {:error, reason} = TalksGame.Auth.signin("consumer2", "foo")
-    assert reason == "More than one user in database"
+    assert {:error, "More than one user in database"} = TalksGame.Auth.signin("consumer2", "foo")
   end
 
   test "signout: existing token" do
@@ -37,7 +34,6 @@ defmodule TalksGame.AuthTest do
   end
 
   test "signout: non-existing token" do
-    assert {:error, reason} = TalksGame.Auth.signout("foo")
-    assert reason == "Could not find session"
+    assert {:error, "Could not find session"} = TalksGame.Auth.signout("foo")
   end
 end
