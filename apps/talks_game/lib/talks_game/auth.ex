@@ -98,4 +98,16 @@ defmodule TalksGame.Auth do
       {:error, reason} -> {:error, reason}
     end
   end
+
+  @spec check_role_by_token(String.t(), String.t()) :: :ok | {:error, String.t()}
+  def check_role_by_token(token, role) do
+    with {:ok, session_stringified} <- Redix.command(:redix, ["GET", "session:" <> token]),
+         {:ok, session} <- Jason.decode(session_stringified),
+         role_cached when role_cached == role <- session["team_type"] do
+      :ok
+    else
+      nil -> {:error, "Session not found"}
+      {:error, reason} -> {:error, reason}
+    end
+  end
 end

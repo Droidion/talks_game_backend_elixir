@@ -17,5 +17,11 @@ defmodule TalksGameWeb.Schema do
       arg(:token, non_null(:string))
       resolve(&Resolvers.Content.signout/3)
     end
+
+    @desc "Timers"
+    field :timers, list_of(:timer) do
+      arg(:token, non_null(:string))
+      resolve(&Resolvers.Content.timers/3)
+    end
   end
 end

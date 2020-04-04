@@ -1,9 +1,8 @@
 alias TalksGame.Repo
-alias TalksGame.User
-alias TalksGame.Timer
+alias TalksGame.Schemas.User
+alias TalksGame.Schemas.Timer
 
 Repo.insert!(%User{
-  team_number: NULL,
   team_type: "admin",
   login: "admin",
   password:

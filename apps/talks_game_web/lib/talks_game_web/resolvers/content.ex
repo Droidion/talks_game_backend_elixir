@@ -12,4 +12,14 @@ defmodule TalksGameWeb.Resolvers.Content do
       {:error, reason} -> {:error, reason}
     end
   end
+
+  def timers(_parent, %{token: token}, _resolution) do
+    has_rights = TalksGame.Auth.check_role_by_token(token, "admin")
+
+    if has_rights == :ok do
+      TalksGame.Timer.get_all_timers()
+    else
+      {:error, "Unauthorized"}
+    end
+  end
 end

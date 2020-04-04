@@ -13,4 +13,10 @@ defmodule TalksGameWeb.Schema.ContentTypes do
   object :message do
     field(:message, :string)
   end
+
+  object :timer do
+    field(:hour, :integer)
+    field(:minute, :integer)
+    field(:period, :integer)
+  end
 end
